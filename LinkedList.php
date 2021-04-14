@@ -4,7 +4,6 @@
 * Linked List Class
 * Author - Aruna Patil
 **/
-
 class Node {
 	public Node $NEXT;
 	public $DATA;
@@ -47,6 +46,23 @@ class LinkedList {
 		$this->add($val);
 		return;
 	}
+
+	function print() {
+		if( !$this->head ) {
+			echo "Empty set!!";
+			return false;
+		} else {
+			$p = $this->head;
+			$count = 1;
+			while($p) {
+				echo "Node $count :: Data ::" . $p->DATA."<br>";
+				$count++;
+				if( isset($p->NEXT) ) {
+					$p = $p->NEXT;
+				} else return;
+			} 
+		}
+	}
 }
 
 $list = new LinkedList();
@@ -59,3 +75,17 @@ $list->add(9);
 $list->add(10);
 $list->addFirst(2);
 $list->addLast(12);
+$list->print();
+
+/***
+** OUTPUT FOR ABOVE 
+Node 1 :: Data ::2
+Node 2 :: Data ::4
+Node 3 :: Data ::5
+Node 4 :: Data ::6
+Node 5 :: Data ::7
+Node 6 :: Data ::8
+Node 7 :: Data ::9
+Node 8 :: Data ::10
+Node 9 :: Data ::12
+****/
